@@ -4,6 +4,7 @@ import co.com.sofka.domain.generic.Entity;
 import com.sofka.colciclapp.domain.ciclista.values.CuentaId;
 import com.sofka.colciclapp.domain.ciclista.values.Favorito;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ public class Cuenta extends Entity<CuentaId> {
 
     public Cuenta(CuentaId entityId) {
         super(entityId);
+        favoritos=new HashSet<>();
     }
 
     public void agregarFavorito(Favorito favorito) {

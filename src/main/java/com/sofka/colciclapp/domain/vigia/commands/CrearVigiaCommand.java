@@ -15,15 +15,15 @@ public class CrearVigiaCommand extends Command {
     private final PersonaId personaId;
     private final PerfilId perfilId;
     private final Descripcion descripcion;
-    private final Set<Especialidad> especialidades;
+    private final Especialidad especialidad;
 
-    public CrearVigiaCommand(VigiaId entityId, PersonaId personaId, PerfilId perfilId, Descripcion descripcion, Set<Especialidad> especialidades) {
+    public CrearVigiaCommand(VigiaId entityId, PersonaId personaId, PerfilId perfilId, Descripcion descripcion, Especialidad especialidad) {
 
         this.entityId = entityId;
         this.personaId = personaId;
         this.perfilId = perfilId;
         this.descripcion = descripcion;
-        this.especialidades = especialidades;
+        this.especialidad = especialidad;
     }
 
     public VigiaId getEntityId() {
@@ -42,7 +42,7 @@ public class CrearVigiaCommand extends Command {
         return descripcion;
     }
 
-    public Set<Especialidad> getEspecialidades() {
-        return especialidades;
+    public Especialidad getEspecialidad() {
+        return especialidad;
     }
 }

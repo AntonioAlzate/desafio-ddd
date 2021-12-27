@@ -4,12 +4,11 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.sofka.colciclapp.domain.ciclista.events.*;
 import com.sofka.colciclapp.domain.ciclista.values.*;
-import com.sofka.colciclapp.domain.genericos.ColorVehiculo;
-import com.sofka.colciclapp.domain.genericos.EstadoEntidad;
-import com.sofka.colciclapp.domain.genericos.Fecha;
-import com.sofka.colciclapp.domain.genericos.PersonaId;
+import com.sofka.colciclapp.domain.genericos.*;
 import com.sofka.colciclapp.domain.recorrido.Ruta;
+import com.sofka.colciclapp.domain.recorrido.values.Direccion;
 import com.sofka.colciclapp.domain.recorrido.values.RecorridoId;
+import com.sofka.colciclapp.domain.recorrido.values.RutaId;
 
 import java.util.List;
 import java.util.Objects;
@@ -45,11 +44,14 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
         return ciclista;
     }
 
-    public void generarRecorrido(RecorridoId recorridoId, Ruta ruta, Fecha fecha) {
+    public void generarRecorrido(RecorridoId recorridoId, RutaId rutaId, Direccion direccionOrigen, Direccion direccionDestino, Descripcion descripcion, Fecha fecha) {
         Objects.requireNonNull(recorridoId);
-        Objects.requireNonNull(ruta);
+        Objects.requireNonNull(rutaId);
+        Objects.requireNonNull(direccionDestino);
+        Objects.requireNonNull(direccionOrigen);
+        Objects.requireNonNull(descripcion);
         Objects.requireNonNull(fecha);
-        appendChange(new RecorridoGenerado(recorridoId, ruta, fecha)).apply();
+        appendChange(new RecorridoGenerado(recorridoId, rutaId, direccionOrigen, direccionDestino, descripcion, fecha)).apply();
     }
 
     public void agregarBicicleta(BicicletaId bicicletaId, TipoBicicleta tipoBicicleta, MarcaBicicleta marca, ColorVehiculo color) {

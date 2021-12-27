@@ -19,9 +19,9 @@ public class Vigia extends AggregateEvent<VigiaId> {
     protected Set<Calificacion> calificaciones;
     protected EstadoEntidad estado;
 
-    public Vigia(VigiaId entityId, PersonaId personaId, PerfilId perfilId, Descripcion descripcion, Set<Especialidad> especialidades) {
+    public Vigia(VigiaId entityId, PersonaId personaId, PerfilId perfilId, Descripcion descripcion, Especialidad especialidad) {
         super(entityId);
-        appendChange(new VigiaCreado(personaId, perfilId, descripcion, especialidades)).apply();
+        appendChange(new VigiaCreado(personaId, perfilId, descripcion, especialidad)).apply();
     }
 
     private Vigia(VigiaId vigiaId) {

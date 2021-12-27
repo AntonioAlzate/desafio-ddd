@@ -24,9 +24,9 @@ public class Recorrido extends AggregateEvent<RecorridoId> {
     protected Iniciado iniciado;
     protected Precio precioBase;
 
-    public Recorrido(RecorridoId entityId, Ruta ruta, Fecha fecha) {
+    public Recorrido(RecorridoId entityId, RutaId rutaId, Direccion direccionOrigen, Direccion direccionDestino, Descripcion descripcion, Fecha fecha) {
         super(entityId);
-        appendChange(new RecorridoCreado(ruta, fecha)).apply();
+        appendChange(new RecorridoCreado(rutaId, direccionDestino, direccionDestino, descripcion, fecha)).apply();
     }
 
     private Recorrido(RecorridoId recorridoId) {
@@ -40,7 +40,7 @@ public class Recorrido extends AggregateEvent<RecorridoId> {
         return recorrido;
     }
 
-    public void IniciarRecorrido() {
+    public void iniciarRecorrido() {
         appendChange(new RecorridoIniciado()).apply();
     }
 
@@ -97,7 +97,7 @@ public class Recorrido extends AggregateEvent<RecorridoId> {
         return fecha;
     }
 
-    public Iniciado estado() {
+    public Iniciado iniciado() {
         return iniciado;
     }
 

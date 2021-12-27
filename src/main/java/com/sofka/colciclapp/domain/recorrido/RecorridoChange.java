@@ -20,7 +20,14 @@ public class RecorridoChange extends EventChange {
             factura.agregarDetalle(new DetalleFactura(servicioBase().identity(),
                     new Descripcion("Servicio base por recorrido")));
 
-            recorrido.ruta = event.getRuta();
+            var ruta = new Ruta(
+                    event.getRutaId(),
+                    event.getDireccionOrigen(),
+                    event.getDireccionDestino(),
+                    event.getDescripcion()
+            );
+
+            recorrido.ruta = ruta;
             recorrido.fecha = event.getFecha();
             recorrido.iniciado = new Iniciado(Boolean.FALSE);
             recorrido.factura = factura;
@@ -31,7 +38,7 @@ public class RecorridoChange extends EventChange {
             if (recorrido.iniciado.equals(Boolean.TRUE)) {
                 throw new IllegalArgumentException("El recorrido ya se encuentra iniciado");
             }
-            recorrido.IniciarRecorrido();
+            recorrido.iniciado = new Iniciado(Boolean.TRUE);
         });
 
         apply((DescripcionRutaActualizada event) -> {

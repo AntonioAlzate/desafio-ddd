@@ -23,21 +23,21 @@ public class CiclistaChange extends EventChange {
 
             ciclista.personaId = event.getPersonaId();
             ciclista.recorridoIds = new HashSet<>();
-            ciclista.bicicletas = Set.of(bicicleta);
+            ciclista.bicicletas = new HashSet<>();
             ciclista.cuenta = new Cuenta(new CuentaId());
             ciclista.estado = new EstadoEntidad(Estado.ACTIVO);
+
+            ciclista.bicicletas.add(bicicleta);
         });
 
         apply((BicicletaAgregada event) -> {
-            if (ciclista.bicicletas().size() == 5) {
-                throw new IllegalArgumentException("No se puede agregar una nueva bicicleta, el maximo son 5");
-            }
 
-            ciclista.agregarBicicleta(
-                    event.getBicicletaId(),
-                    event.getTipoBicicleta(),
-                    event.getMarca(),
-                    event.getColor()
+            ciclista.bicicletas.add(
+                    new Bicicleta(
+                            event.getBicicletaId(),
+                            event.getTipoBicicleta(),
+                            event.getMarca(),
+                            event.getColor())
             );
         });
 
@@ -68,10 +68,15 @@ public class CiclistaChange extends EventChange {
         });
 
         apply((RecorridoGenerado event) -> {
+
             var recorrido = new Recorrido(
                     event.getRecorridoId(),
-                    event.getRuta(),
-                    event.getFecha());
+                    event.getRutaId(),
+                    event.getDireccionOrigen(),
+                    event.getDireccionDestino(),
+                    event.getDescripcion(),
+                    event.getFecha()
+                    );
 
             ciclista.recorridoIds.add(recorrido.identity());
         });

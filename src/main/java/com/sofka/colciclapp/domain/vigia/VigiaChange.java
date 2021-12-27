@@ -5,15 +5,19 @@ import com.sofka.colciclapp.domain.genericos.ColorVehiculo;
 import com.sofka.colciclapp.domain.genericos.Estado;
 import com.sofka.colciclapp.domain.genericos.EstadoEntidad;
 import com.sofka.colciclapp.domain.vigia.events.*;
+import com.sofka.colciclapp.domain.vigia.values.Especialidad;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class VigiaChange extends EventChange {
     public VigiaChange(Vigia vigia) {
 
 
         apply((VigiaCreado event) -> {
-            Perfil perfil = new Perfil(event.getPerfilId(), event.getDescripcion(), event.getEspecialidades());
+            Set<Especialidad> especialidades = new HashSet<>();
+            especialidades.add(event.getEspecialidad());
+            Perfil perfil = new Perfil(event.getPerfilId(), event.getDescripcion(), especialidades);
 
             vigia.perfil = perfil;
             vigia.personaId = event.getPersonaId();

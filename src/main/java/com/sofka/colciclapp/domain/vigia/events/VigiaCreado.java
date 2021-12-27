@@ -13,15 +13,15 @@ public class VigiaCreado extends DomainEvent {
 
     private final PerfilId perfilId;
     private final Descripcion descripcion;
-    private final Set<Especialidad> especialidades;
     private final PersonaId personaId;
+    private final Especialidad especialidad;
 
-    public VigiaCreado(PersonaId personaId, PerfilId perfilId, Descripcion descripcion, Set<Especialidad> especialidades) {
+    public VigiaCreado(PersonaId personaId, PerfilId perfilId, Descripcion descripcion, Especialidad especialidad) {
         super("sofka.vigia.vigiacreado");
 
         this.perfilId = perfilId;
         this.descripcion = descripcion;
-        this.especialidades = especialidades;
+        this.especialidad = especialidad;
         this.personaId = personaId;
     }
 
@@ -37,7 +37,7 @@ public class VigiaCreado extends DomainEvent {
         return descripcion;
     }
 
-    public Set<Especialidad> getEspecialidades() {
-        return especialidades;
+    public Especialidad getEspecialidad() {
+        return especialidad;
     }
 }
