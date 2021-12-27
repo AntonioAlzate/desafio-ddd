@@ -1,4 +1,4 @@
-package com.sofka.colciclapp.usecase.services;
+package com.sofka.colciclapp.usecase;
 
 import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
@@ -6,6 +6,7 @@ import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.business.support.TriggeredEvent;
 import com.sofka.colciclapp.domain.ciclista.events.RecorridoGenerado;
 import com.sofka.colciclapp.domain.recorrido.values.RecorridoId;
+import com.sofka.colciclapp.usecase.services.EnviarNotificacionService;
 
 import java.util.List;
 

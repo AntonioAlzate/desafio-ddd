@@ -21,7 +21,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,7 +30,7 @@ class AgregarEspecialidadAlPerfilUseCaseTest {
     DomainEventRepository repository;
 
     @Test
-    void agregarEspecialidadPerfil(){
+    void agregarEspecialidadPerfil() {
         VigiaId vigiaId = VigiaId.of("xxxx");
         Especialidad especialidad = Especialidad.MECANICA;
         var command = new AgregarEspecialidadAlPerfilCommand(vigiaId, especialidad);

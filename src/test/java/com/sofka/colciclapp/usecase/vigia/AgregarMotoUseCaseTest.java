@@ -22,7 +22,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,7 +31,7 @@ class AgregarMotoUseCaseTest {
     DomainEventRepository repository;
 
     @Test
-    void agregarMoto(){
+    void agregarMoto() {
 
         VigiaId vigiaId = VigiaId.of("xxxx");
         MotoId motoId = MotoId.of("yyyy");
@@ -62,7 +61,7 @@ class AgregarMotoUseCaseTest {
     }
 
     @Test
-    void agregarMoto_errorPorCantidad(){
+    void agregarMoto_errorPorCantidad() {
 
         VigiaId vigiaId = VigiaId.of("xxxx");
         MotoId motoId = MotoId.of("yyyy");
@@ -76,7 +75,7 @@ class AgregarMotoUseCaseTest {
         when(repository.getEventsBy("xxxx")).thenReturn(getEvents());
         usecase.addRepository(repository);
 
-        Assertions.assertThrows(BusinessException.class, ()->{
+        Assertions.assertThrows(BusinessException.class, () -> {
             UseCaseHandler.getInstance()
                     .setIdentifyExecutor(vigiaId.value())
                     .syncExecutor(usecase, new RequestCommand<>(command))

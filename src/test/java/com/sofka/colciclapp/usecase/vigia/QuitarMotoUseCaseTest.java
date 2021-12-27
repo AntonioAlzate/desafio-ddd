@@ -22,7 +22,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,7 +31,7 @@ class QuitarMotoUseCaseTest {
     DomainEventRepository repository;
 
     @Test
-    void quitarUnaMoto(){
+    void quitarUnaMoto() {
 
         VigiaId vigiaId = VigiaId.of("xxxx");
         MotoId motoId = MotoId.of("1111");

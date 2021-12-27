@@ -5,7 +5,6 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
-import com.sofka.colciclapp.domain.ciclista.events.FavoritoAgregadoALaCuenta;
 import com.sofka.colciclapp.domain.genericos.Descripcion;
 import com.sofka.colciclapp.domain.genericos.Fecha;
 import com.sofka.colciclapp.domain.recorrido.commands.IniciarRecorridoCommand;
@@ -24,7 +23,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -34,7 +32,7 @@ class IniciarRecorridoUseCaseTest {
     DomainEventRepository repository;
 
     @Test
-    void iniciarRecorrido(){
+    void iniciarRecorrido() {
         RecorridoId recorridoId = RecorridoId.of("xxxx");
         var command = new IniciarRecorridoCommand(recorridoId);
         var usecase = new IniciarRecorridoUseCase();
@@ -55,7 +53,7 @@ class IniciarRecorridoUseCaseTest {
     }
 
     @Test
-    void iniciarRecorrido_errorYaEstaIniciado(){
+    void iniciarRecorrido_errorYaEstaIniciado() {
         RecorridoId recorridoId = RecorridoId.of("xxxx");
         var command = new IniciarRecorridoCommand(recorridoId);
         var usecase = new IniciarRecorridoUseCase();
@@ -63,7 +61,7 @@ class IniciarRecorridoUseCaseTest {
         when(repository.getEventsBy("xxxx")).thenReturn(getEvents());
         usecase.addRepository(repository);
 
-        Assertions.assertThrows(BusinessException.class, ()->{
+        Assertions.assertThrows(BusinessException.class, () -> {
             UseCaseHandler.getInstance()
                     .setIdentifyExecutor(recorridoId.value())
                     .syncExecutor(usecase, new RequestCommand<>(command))
@@ -72,7 +70,7 @@ class IniciarRecorridoUseCaseTest {
     }
 
     private List<DomainEvent> getEvent() {
-        return  List.of(
+        return List.of(
                 new RecorridoCreado(
                         RutaId.of("aaaa"),
                         new Direccion("asd", 4d, 5d),
@@ -84,7 +82,7 @@ class IniciarRecorridoUseCaseTest {
     }
 
     private List<DomainEvent> getEvents() {
-        return  List.of(
+        return List.of(
                 new RecorridoCreado(
                         RutaId.of("aaaa"),
                         new Direccion("asd", 4d, 5d),

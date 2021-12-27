@@ -4,9 +4,7 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
-import com.sofka.colciclapp.domain.ciclista.Ciclista;
 import com.sofka.colciclapp.domain.ciclista.commands.AgregarUnFavoritoALaCuentaCommand;
-import com.sofka.colciclapp.domain.ciclista.events.BicicletaAgregada;
 import com.sofka.colciclapp.domain.ciclista.events.CiclistaCreado;
 import com.sofka.colciclapp.domain.ciclista.events.FavoritoAgregadoALaCuenta;
 import com.sofka.colciclapp.domain.ciclista.values.*;
@@ -23,7 +21,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -33,7 +30,7 @@ class AgregarUnFavoritoALaCuentaUseCaseTest {
     DomainEventRepository repository;
 
     @Test
-    void agregarFavorito(){
+    void agregarFavorito() {
         CiclistaId ciclistaId = CiclistaId.of("xxxx");
         Favorito favorito = new Favorito(RecorridoId.of("yyyy"));
         var command = new AgregarUnFavoritoALaCuentaCommand(ciclistaId, favorito);

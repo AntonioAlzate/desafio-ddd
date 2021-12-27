@@ -45,7 +45,7 @@ public class Distancia implements ValueObject<Distancia.Properties> {
         return Objects.hash(valor, unidadMedida);
     }
 
-    interface Properties {
+    public interface Properties {
         Double valor();
 
         UnidadMedida unidadMedida();

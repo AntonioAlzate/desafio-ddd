@@ -33,7 +33,7 @@ class AgregarBicicletaUseCaseTest {
     DomainEventRepository repository;
 
     @Test
-    void agregarBicicleta(){
+    void agregarBicicleta() {
 
         CiclistaId ciclistaId = CiclistaId.of("xxxx");
         BicicletaId bicicletaId = BicicletaId.of("yyyy");
@@ -63,7 +63,7 @@ class AgregarBicicletaUseCaseTest {
     }
 
     @Test
-    void agregarBicicleta_errorPorCantidad(){
+    void agregarBicicleta_errorPorCantidad() {
 
         CiclistaId ciclistaId = CiclistaId.of("xxxx");
         BicicletaId bicicletaId = BicicletaId.of("yyyy");
@@ -77,7 +77,7 @@ class AgregarBicicletaUseCaseTest {
         when(repository.getEventsBy("xxxx")).thenReturn(getEvents());
         usecase.addRepository(repository);
 
-        Assertions.assertThrows(BusinessException.class, ()->{
+        Assertions.assertThrows(BusinessException.class, () -> {
             UseCaseHandler.getInstance()
                     .setIdentifyExecutor(ciclistaId.value())
                     .syncExecutor(usecase, new RequestCommand<>(command))

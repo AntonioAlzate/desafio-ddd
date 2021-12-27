@@ -14,18 +14,16 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CrearRecorridoUseCaseTest {
 
     @Test
-    void crearRecorrido(){
+    void crearRecorrido() {
         // arrange
         RecorridoId recorridoId = RecorridoId.of("xxxx");
         RutaId rutaId = RutaId.of("aaaa");
-        Direccion direccionOrigen=new Direccion("Cll4-45", 12d, 3d);
-        Direccion direccionDestino=new Direccion("Cll56-122", 13d, 5d);
-        Descripcion descripcion=new Descripcion("Paseo de rutina");
+        Direccion direccionOrigen = new Direccion("Cll4-45", 12d, 3d);
+        Direccion direccionDestino = new Direccion("Cll56-122", 13d, 5d);
+        Descripcion descripcion = new Descripcion("Paseo de rutina");
         Fecha fecha = new Fecha(LocalDateTime.now());
 
         var command = new CrearRecorridoCommand(recorridoId, rutaId, direccionOrigen, direccionDestino, descripcion, fecha);

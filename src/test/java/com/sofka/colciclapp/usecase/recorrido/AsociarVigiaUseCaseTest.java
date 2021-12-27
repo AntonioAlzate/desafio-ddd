@@ -8,7 +8,6 @@ import com.sofka.colciclapp.domain.genericos.Descripcion;
 import com.sofka.colciclapp.domain.genericos.Fecha;
 import com.sofka.colciclapp.domain.recorrido.commands.AsociarVigiaCommand;
 import com.sofka.colciclapp.domain.recorrido.events.RecorridoCreado;
-import com.sofka.colciclapp.domain.recorrido.events.RecorridoIniciado;
 import com.sofka.colciclapp.domain.recorrido.events.VigiaAsociadoARecorrido;
 import com.sofka.colciclapp.domain.recorrido.values.Direccion;
 import com.sofka.colciclapp.domain.recorrido.values.RecorridoId;
@@ -24,7 +23,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -57,7 +55,7 @@ class AsociarVigiaUseCaseTest {
     }
 
     private List<DomainEvent> getEvent() {
-        return  List.of(
+        return List.of(
                 new RecorridoCreado(
                         RutaId.of("aaaa"),
                         new Direccion("asd", 4d, 5d),

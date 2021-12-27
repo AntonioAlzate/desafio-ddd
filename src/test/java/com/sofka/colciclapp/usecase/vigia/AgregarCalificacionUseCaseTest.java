@@ -4,9 +4,7 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
-import com.sofka.colciclapp.domain.ciclista.events.FavoritoAgregadoALaCuenta;
 import com.sofka.colciclapp.domain.ciclista.values.CiclistaId;
-import com.sofka.colciclapp.domain.genericos.Color;
 import com.sofka.colciclapp.domain.genericos.Descripcion;
 import com.sofka.colciclapp.domain.genericos.PersonaId;
 import com.sofka.colciclapp.domain.vigia.commands.AgregarCalificacionCommand;
@@ -22,7 +20,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,7 +29,7 @@ class AgregarCalificacionUseCaseTest {
     DomainEventRepository repository;
 
     @Test
-    void agregarCalificacion(){
+    void agregarCalificacion() {
         VigiaId vigiaId = VigiaId.of("xxxx");
         CalificacionId calificacionId = CalificacionId.of("aaaa");
         Puntuacion puntuacion = new Puntuacion(CiclistaId.of("bbbb"), "Muy agradable", Puntaje.MUY_BUENO);

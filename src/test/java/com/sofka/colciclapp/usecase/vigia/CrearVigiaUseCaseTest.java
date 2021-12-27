@@ -2,24 +2,20 @@ package com.sofka.colciclapp.usecase.vigia;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import com.sofka.colciclapp.domain.ciclista.events.CiclistaCreado;
 import com.sofka.colciclapp.domain.genericos.Descripcion;
 import com.sofka.colciclapp.domain.genericos.PersonaId;
 import com.sofka.colciclapp.domain.vigia.commands.CrearVigiaCommand;
 import com.sofka.colciclapp.domain.vigia.events.VigiaCreado;
 import com.sofka.colciclapp.domain.vigia.values.Especialidad;
-import com.sofka.colciclapp.domain.vigia.values.EspecialidadVigia;
 import com.sofka.colciclapp.domain.vigia.values.PerfilId;
 import com.sofka.colciclapp.domain.vigia.values.VigiaId;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CrearVigiaUseCaseTest {
 
     @Test
-    void crearVigia(){
+    void crearVigia() {
         VigiaId vigiaId = VigiaId.of("xxxx");
         PersonaId personaId = PersonaId.of("aaaa");
         PerfilId perfilId = PerfilId.of("bbbb");

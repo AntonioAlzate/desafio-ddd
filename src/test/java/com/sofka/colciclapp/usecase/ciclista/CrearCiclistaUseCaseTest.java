@@ -14,12 +14,10 @@ import com.sofka.colciclapp.domain.genericos.PersonaId;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CrearCiclistaUseCaseTest {
 
     @Test
-    void crearCiclista(){
+    void crearCiclista() {
 
         // arrange
         CiclistaId ciclistaId = CiclistaId.of("xxxx");
