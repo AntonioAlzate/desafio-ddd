@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.EventChange;
 import com.sofka.colciclapp.domain.genericos.Descripcion;
 import com.sofka.colciclapp.domain.genericos.Precio;
 import com.sofka.colciclapp.domain.recorrido.events.*;
-import com.sofka.colciclapp.domain.recorrido.values.DetalleFactura;
+import com.sofka.colciclapp.domain.recorrido.values.DetalleId;
 import com.sofka.colciclapp.domain.recorrido.values.FacturaId;
 import com.sofka.colciclapp.domain.recorrido.values.Iniciado;
 import com.sofka.colciclapp.domain.recorrido.values.ServicioId;
@@ -17,8 +17,11 @@ public class RecorridoChange extends EventChange {
         apply((RecorridoCreado event) -> {
             var factura = new Factura(new FacturaId());
             var servicio = servicioBase();
-            factura.agregarDetalle(new DetalleFactura(servicioBase().identity(),
-                    new Descripcion("Servicio base por recorrido")));
+            factura.agregarDetalle(
+                    new DetalleFactura(
+                            new DetalleId(),
+                            servicioBase().identity(),
+                            new Descripcion("Servicio base por recorrido")));
 
             var ruta = new Ruta(
                     event.getRutaId(),
@@ -32,6 +35,14 @@ public class RecorridoChange extends EventChange {
             recorrido.iniciado = new Iniciado(Boolean.FALSE);
             recorrido.factura = factura;
             recorrido.servicios = Set.of(servicio);
+        });
+
+        apply((VigiaAsociadoARecorrido event) -> {
+            if (recorrido.iniciado.equals(Boolean.TRUE)) {
+                throw new IllegalArgumentException("El recorrido ya se encuentra iniciado");
+            }
+
+            recorrido.vigiaId = event.getVigiaId();
         });
 
         apply((RecorridoIniciado event) -> {

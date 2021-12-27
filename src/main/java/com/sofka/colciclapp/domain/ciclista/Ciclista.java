@@ -5,7 +5,6 @@ import co.com.sofka.domain.generic.DomainEvent;
 import com.sofka.colciclapp.domain.ciclista.events.*;
 import com.sofka.colciclapp.domain.ciclista.values.*;
 import com.sofka.colciclapp.domain.genericos.*;
-import com.sofka.colciclapp.domain.recorrido.Ruta;
 import com.sofka.colciclapp.domain.recorrido.values.Direccion;
 import com.sofka.colciclapp.domain.recorrido.values.RecorridoId;
 import com.sofka.colciclapp.domain.recorrido.values.RutaId;

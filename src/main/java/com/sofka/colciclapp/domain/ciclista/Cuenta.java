@@ -13,7 +13,7 @@ public class Cuenta extends Entity<CuentaId> {
 
     public Cuenta(CuentaId entityId) {
         super(entityId);
-        favoritos=new HashSet<>();
+        favoritos = new HashSet<>();
     }
 
     public void agregarFavorito(Favorito favorito) {

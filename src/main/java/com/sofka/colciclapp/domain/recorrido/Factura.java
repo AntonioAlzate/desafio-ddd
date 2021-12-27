@@ -3,7 +3,6 @@ package com.sofka.colciclapp.domain.recorrido;
 import co.com.sofka.domain.generic.Entity;
 import com.sofka.colciclapp.domain.genericos.Fecha;
 import com.sofka.colciclapp.domain.genericos.Precio;
-import com.sofka.colciclapp.domain.recorrido.values.DetalleFactura;
 import com.sofka.colciclapp.domain.recorrido.values.FacturaId;
 
 import java.time.LocalDateTime;

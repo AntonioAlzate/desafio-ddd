@@ -12,11 +12,11 @@ public class CrearVigiaUseCase extends UseCase<RequestCommand<CrearVigiaCommand>
         var command = requestCommand.getCommand();
 
         var vigia = new Vigia(
-            command.getEntityId(),
-            command.getPersonaId(),
-            command.getPerfilId(),
-            command.getDescripcion(),
-            command.getEspecialidad()
+                command.getEntityId(),
+                command.getPersonaId(),
+                command.getPerfilId(),
+                command.getDescripcion(),
+                command.getEspecialidad()
         );
 
         emit().onResponse(new ResponseEvents(vigia.getUncommittedChanges()));

@@ -7,8 +7,6 @@ import com.sofka.colciclapp.domain.vigia.values.Especialidad;
 import com.sofka.colciclapp.domain.vigia.values.PerfilId;
 import com.sofka.colciclapp.domain.vigia.values.VigiaId;
 
-import java.util.Set;
-
 public class CrearVigiaCommand extends Command {
 
     private final VigiaId entityId;

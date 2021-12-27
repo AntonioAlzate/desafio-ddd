@@ -8,7 +8,6 @@ import com.sofka.colciclapp.domain.genericos.EstadoEntidad;
 import com.sofka.colciclapp.domain.recorrido.Recorrido;
 
 import java.util.HashSet;
-import java.util.Set;
 
 public class CiclistaChange extends EventChange {
     public CiclistaChange(Ciclista ciclista) {
@@ -76,7 +75,7 @@ public class CiclistaChange extends EventChange {
                     event.getDireccionDestino(),
                     event.getDescripcion(),
                     event.getFecha()
-                    );
+            );
 
             ciclista.recorridoIds.add(recorrido.identity());
         });

@@ -1,7 +1,7 @@
 package com.sofka.colciclapp.domain.recorrido.commands;
 
 import co.com.sofka.domain.generic.Command;
-import com.sofka.colciclapp.domain.recorrido.values.DetalleFactura;
+import com.sofka.colciclapp.domain.recorrido.DetalleFactura;
 import com.sofka.colciclapp.domain.recorrido.values.RecorridoId;
 
 public class AgregarDetalleAFacturaCommand extends Command {

@@ -14,9 +14,9 @@ public class IniciarRecorridoUseCase extends UseCase<RequestCommand<IniciarRecor
         var recorrido = Recorrido
                 .from(command.getRecorridoId(), retrieveEvents());
 
-        if(recorrido.iniciado().value().equals(Boolean.TRUE)){
+        if (recorrido.iniciado().value().equals(Boolean.TRUE)) {
             throw new BusinessException(command.getRecorridoId().value()
-                    ,"El recorrido ya se ha iniciado anteriormente");
+                    , "El recorrido ya se ha iniciado anteriormente");
         }
 
         recorrido.iniciarRecorrido();

@@ -13,7 +13,7 @@ public class AgregarMotoUseCase extends UseCase<RequestCommand<AgregarMotoComman
         var command = requestCommand.getCommand();
         var vigia = Vigia.from(command.getVigiaId(), retrieveEvents());
 
-        if(vigia.motos().size() == 5){
+        if (vigia.motos().size() == 5) {
             throw new BusinessException(command.getVigiaId().value(), "No puede tener más bicicletas");
         }
 

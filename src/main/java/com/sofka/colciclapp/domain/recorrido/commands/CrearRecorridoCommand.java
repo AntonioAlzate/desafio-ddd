@@ -3,7 +3,6 @@ package com.sofka.colciclapp.domain.recorrido.commands;
 import co.com.sofka.domain.generic.Command;
 import com.sofka.colciclapp.domain.genericos.Descripcion;
 import com.sofka.colciclapp.domain.genericos.Fecha;
-import com.sofka.colciclapp.domain.recorrido.Ruta;
 import com.sofka.colciclapp.domain.recorrido.values.Direccion;
 import com.sofka.colciclapp.domain.recorrido.values.RecorridoId;
 import com.sofka.colciclapp.domain.recorrido.values.RutaId;

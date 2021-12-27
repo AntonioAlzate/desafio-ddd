@@ -1,6 +1,5 @@
 package com.sofka.colciclapp.usecase.vigia;
 
-import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;

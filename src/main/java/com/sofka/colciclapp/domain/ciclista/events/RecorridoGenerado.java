@@ -3,7 +3,6 @@ package com.sofka.colciclapp.domain.ciclista.events;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.sofka.colciclapp.domain.genericos.Descripcion;
 import com.sofka.colciclapp.domain.genericos.Fecha;
-import com.sofka.colciclapp.domain.recorrido.Ruta;
 import com.sofka.colciclapp.domain.recorrido.values.Direccion;
 import com.sofka.colciclapp.domain.recorrido.values.RecorridoId;
 import com.sofka.colciclapp.domain.recorrido.values.RutaId;

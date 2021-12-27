@@ -49,6 +49,11 @@ public class Recorrido extends AggregateEvent<RecorridoId> {
         appendChange(new DetalleFacturaAgregado(detalleFactura)).apply();
     }
 
+    public void asociarVigia(VigiaId vigiaId) {
+        Objects.requireNonNull(vigiaId);
+        appendChange(new VigiaAsociadoARecorrido(vigiaId)).apply();
+    }
+
     public void actualizarOrigenRuta(Direccion direccionOrigen) {
         Objects.requireNonNull(direccionOrigen);
         appendChange(new DireccionOrigenActualizada(direccionOrigen)).apply();

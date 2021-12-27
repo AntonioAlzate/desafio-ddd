@@ -13,7 +13,7 @@ public class AgregarBicicletaUseCase extends UseCase<RequestCommand<AgregarBicic
         var command = requestCommand.getCommand();
         var ciclista = Ciclista.from(command.getCiclistaId(), retrieveEvents());
 
-        if(ciclista.bicicletas().size() == 5){
+        if (ciclista.bicicletas().size() == 5) {
             throw new BusinessException(command.getCiclistaId().value(), "No puede tener más bicicletas");
         }
 

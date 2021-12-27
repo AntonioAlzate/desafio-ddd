@@ -6,8 +6,6 @@ import com.sofka.colciclapp.domain.genericos.PersonaId;
 import com.sofka.colciclapp.domain.vigia.values.Especialidad;
 import com.sofka.colciclapp.domain.vigia.values.PerfilId;
 
-import java.util.Set;
-
 public class VigiaCreado extends DomainEvent {
 
 
